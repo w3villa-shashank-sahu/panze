@@ -123,57 +123,57 @@ function ProjectStatistics() {
     const [activeRange, setActiveRange] = useState("12 Month");
     const [chartData, setChartData] = useState(yearData);
     return (
-        <div className=" w-full h-[400px] bg-white rounded-lg p-5 shadow-md flex flex-col">
-            <div className="flex justify-between items-center">
-                <h2 className="text-lg font-semibold text-gray-700">Project Statistics</h2>
-                <div>
-                    {timeRanges.map((range) => (
-                        <TimeRangeButtons
-                            key={range}
-                            title={range}
-                            active={activeRange === range}
-                            onClick={() => {
-                                setActiveRange(range);
-                                if (range === "12 Month") setChartData(yearData);
-                                if (range === "30 Days") setChartData(monthData);
-                                if (range === "7 days") setChartData(weekData);
-                                if (range === "24 Hours") setChartData(dayData);
-                            }}
-                        />
-                    ))}
-                </div>
-            </div>
-
-            <div className="flex-1">
-            <ResponsiveContainer>
-                <BarChart data={chartData} margin={{ top: 0, right: 0, left: 0, bottom: 0}}>
-                    <XAxis dataKey="name" stroke="#888" />
-                    <YAxis />
-                    <Tooltip content={<CustomTooltip />} />
-                    <Legend 
-                    wrapperStyle={{
-                        paddingTop: '20px',
-                        fontSize: '16px',
-                        color: '#1f2937', 
-                        fontWeight: 500
-                    }} />
-                    <defs>
-                        <linearGradient id="colorHours" x1="0" y1="0" x2="1" y2="1">
-                            <stop offset="5%" stopColor="#f4566f" />
-                            <stop offset="95%" stopColor="#ff7300" />
-                        </linearGradient>
-                        <linearGradient id="colorProjects" x1="0" y1="0" x2="1" y2="1">
-                            <stop offset="5%" stopColor="#dadadb" />
-                            <stop offset="95%" stopColor="#bfbfbf"/>
-                        </linearGradient>
-                    </defs>
-                    <Bar dataKey="hours" fill="url(#colorHours)" name="Working Hours" barSize={13} radius={[10, 10, 0, 0]} 
-                    />
-                    <Bar dataKey="projects" fill="url(#colorProjects)" name="Projects" barSize={13} radius={[10, 10, 0, 0]} />
-                </BarChart>
-            </ResponsiveContainer>
-            </div>
+      <div className="w-full h-[400px] bg-white rounded-lg p-5 shadow-md flex flex-col">
+      <div className="flex justify-between items-center mb-3 flex-wrap gap-2">
+        <h2 className="text-lg font-semibold text-gray-700">Project Statistics</h2>
+        <div className="flex space-x-2">
+        {timeRanges.map((range) => (
+          <TimeRangeButtons
+          key={range}
+          title={range}
+          active={activeRange === range}
+          onClick={() => {
+            setActiveRange(range);
+            if (range === "12 Month") setChartData(yearData);
+            if (range === "30 Days") setChartData(monthData);
+            if (range === "7 days") setChartData(weekData);
+            if (range === "24 Hours") setChartData(dayData);
+          }}
+          />
+        ))}
         </div>
+      </div>
+
+      <div className="flex-1">
+        <ResponsiveContainer>
+        <BarChart data={chartData} margin={{ top: 5, right: 0, left: -15, bottom: 0 }}>
+          <XAxis dataKey="name" stroke="#888" style={{fontSize: "clamp(12px, 2vw, 15px)"}}/>
+          <YAxis style={{fontSize: "clamp(12px, 2vw, 15px)"}}/>
+          <Tooltip content={<CustomTooltip />} />
+          <Legend
+          wrapperStyle={{
+            paddingTop: 'clamp(10px, 2vw, 20px)',
+            fontSize: 'clamp(12px, 1.5vw, 16px)',
+            color: '#1f2937',
+            fontWeight: 500
+          }}
+          />
+          <defs>
+          <linearGradient id="colorHours" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="5%" stopColor="#f4566f" />
+            <stop offset="95%" stopColor="#ff7300" />
+          </linearGradient>
+          <linearGradient id="colorProjects" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="5%" stopColor="#dadadb" />
+            <stop offset="95%" stopColor="#bfbfbf" />
+          </linearGradient>
+          </defs>
+          <Bar dataKey="hours" fill="url(#colorHours)" name="Working Hours" barSize={13} radius={[10, 10, 0, 0]} />
+          <Bar dataKey="projects" fill="url(#colorProjects)" name="Projects" barSize={13} radius={[10, 10, 0, 0]} />
+        </BarChart>
+        </ResponsiveContainer>
+      </div>
+      </div>
     );
 }
 

@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+@theme{
+  --breakpoint-bp760: 760px;
+}
+
 /* For Webkit browsers (Chrome, Safari) */
 ::-webkit-scrollbar {
     display: none;
@@ -14,3 +18,4 @@
   body {
     -ms-overflow-style: -ms-autohiding-scrollbar;
   }
+

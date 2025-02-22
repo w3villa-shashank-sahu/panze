@@ -8,7 +8,7 @@ import { Outlet } from "react-router";
 function App() {
     const [isOpen, setIsOpen] = useState(true);
     return (         
-        <div className="flex h-screen w-screen text-xl overflow-hidden text-white">
+        <div className="flex h-screen w-screen text-xl  text-white">
             {/* Hamburger Button */}
             <button 
                 className="fixed top-4 left-4 z-50 w-6 h-5 flex flex-col justify-between sm:hidden"
@@ -25,14 +25,14 @@ function App() {
             </div>
 
             {/* Main Content */}
-            <div className="flex flex-col w-full">
+            <div className="flex h-full flex-col w-full">
                 {/* Appbar */}
                 <Appbar showMenu={!isOpen} onMenuClick={() => setIsOpen(!isOpen)} />
 
                 {/* Screen */}
-                <div className="h-full min-w-full flex p-3 bg-[#ecf2f9] ">
+                <div className="h-[99%] overflow-y-scroll min-w-full  flex p-3 bg-[#ecf2f9]">
                     {/* <OverviewPage/> */}
-                    <Outlet/>
+                    <Outlet/> 
                 </div>
             </div>                
         </div> 

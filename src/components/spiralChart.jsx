@@ -18,7 +18,7 @@ function ProjectOverviewCard({ title, percentages, projectTypes, totalProjects, 
   const outerRadii = [50, 70, 90]; // Radii for the outer circles
 
   return (
-    <div className="bg-white rounded-lg p-6 shadow-md min-w-80 flex-1">
+    <div className="bg-white rounded-lg p-6 shadow-md min-w-74 flex-1">
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-lg font-semibold">{title}</h2>
         <span className="text-gray-500">...</span>
@@ -52,6 +52,20 @@ function ProjectOverviewCard({ title, percentages, projectTypes, totalProjects, 
 
       <div className="mt-6 flex items-center">
         <div className="w-2 h-2 rounded-full bg-blue-500 mr-2"></div>
+        <div>
+          <p className="text-sm font-medium text-gray-700">{projectTypes[0]}</p>
+          <p className="text-xs text-gray-500">{totalProjects} Total Projects, {totalMembers} Members</p>
+        </div>
+      </div>
+      <div className="mt-6 flex items-center">
+        <div className="w-2 h-2 rounded-full bg-[#82ca9d] mr-2"></div>
+        <div>
+          <p className="text-sm font-medium text-gray-700">{projectTypes[0]}</p>
+          <p className="text-xs text-gray-500">{totalProjects} Total Projects, {totalMembers} Members</p>
+        </div>
+      </div>
+      <div className="mt-6 flex items-center">
+        <div className="w-2 h-2 rounded-full bg-[#ffc658] mr-2"></div>
         <div>
           <p className="text-sm font-medium text-gray-700">{projectTypes[0]}</p>
           <p className="text-xs text-gray-500">{totalProjects} Total Projects, {totalMembers} Members</p>

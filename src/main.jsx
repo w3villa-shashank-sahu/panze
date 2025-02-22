@@ -8,6 +8,7 @@ import { Navigate } from "react-router";
 import OverviewPage from './pages/overview.jsx';
 import Page2 from "./pages/page2";
 import GetAPI from './pages/getApi.jsx';
+import ManageEmployees from './pages/manage.jsx';
 
 
 const router = createBrowserRouter([
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
           {
             path: "GET API",
             element: <GetAPI/>
+          },
+          {
+            path: "manage",
+            element: <ManageEmployees/>
           },
           {
             path: ":id",

@@ -46,8 +46,8 @@ const PieChart = () => {
     };
 
     return (
-            <div className="text-5xl flex flex-col  font-bold bg-white rounded-2xl p-4 h-100 w-full shadow-md xl:w-100">
-                <div className='text-gray-700 text-lg mb-2'>
+            <div className="text-5xl flex flex-col  font-bold bg-white rounded-2xl p-4 h-100 w-[99%] shadow-md xl:w-100">
+                <div className='text-gray-700 mb-2' style={{fontSize: 'clamp(15px, 2vw, 18px)'}}>
                     Monthly Target
                 </div>
                 <div className='flex-1'>
